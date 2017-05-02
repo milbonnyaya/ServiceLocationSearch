@@ -1,0 +1,112 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    color: #242526;
+    font: 'Open Sans', sans-serif;
+    margin: 0;
+    position: relative;
+}
+
+.locationSearch {
+    width: 100%;
+    height: 100%;
+}
+.content {
+    display: flex;
+    flex-direction: row wrap;
+    width: 100%;
+    min-height: 90vh;
+    height: 100%;
+}
+
+.leftBarMain {
+    display: flex-item;
+    flex: 0 0 33%;
+}
+
+.leftBarMain .bars {
+    display: none;
+}
+
+.leftBarMain .group {
+    overflow: auto;
+    position: relative;
+    display: block;
+}
+
+.leftBarMain .group input[type="textbox"],
+.leftBarMain .group input[type="tel"] {
+    border: solid 1px rgba(122,122,122,0.3);
+    padding: 0 10px;
+    width: calc(100% - 22px);
+    margin-bottom: 20px;
+    font: normal 400 .875em/2.5rem 'Open Sans', sans-serif;
+}
+
+.leftBarMain .group button {
+    color: #fff;
+    width: 100%;
+    font: normal 400 .875em/2.5rem 'Open Sans', sans-serif;
+    background-color: #337ab7;
+    border-radius: 6px;
+    border: solid 1px #2e6da4;
+}
+
+.leftBarMain .group .error {
+    color: #ff0000;
+}
+
+.leftBarMain .show {
+    display: block;
+}
+
+.leftBarMain .hide {
+    display: none;
+}
+ 
+
+.mapMain {
+    display: flex-item;
+    flex: 0 0 66%;
+    background-color: Gray;
+    margin: 0 auto;
+    overflow-y: auto;
+}
+
+@media screen and (max-width: 599px) {
+    .content {
+        min-height: auto;
+        position: relative;
+    }
+    .leftBarMain {
+        width: 100%;
+        background-color: #eee;
+        position: absolute;
+        top: 0;
+        z-index: 200;
+        
+    }
+    .leftBarMain .bars {
+        display: block;
+        height: 35px;
+    }
+    .leftBarMain .bars button {
+        padding: 5px 0 5px 5px;
+    }
+    .groupMain {
+        padding-top: 10px;
+        padding-bottom: 20px;
+        display: block;
+    }
+    .mapMain {
+        width: 100%;
+        height: calc(100% - 35px);
+        position: absolute;
+        top: 35px;
+        z-index: 100;
+    }
+
+}
