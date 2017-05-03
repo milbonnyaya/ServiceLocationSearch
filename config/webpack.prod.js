@@ -3,10 +3,11 @@ var webpack = require('webpack');
 const helpers = require('./helpers');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const ENV = process.env.NODE_ENV = process.env.ENV = 'development';
+const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 const API_URL = 'https://anaheim-proj-production.appspot-preview.com';
 
 module.exports = {
+  devtool: 'source-map',
   entry: [
     './src/main.js'
   ],
@@ -22,21 +23,13 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      {
-          test: /\.css$/,
-          use: ExtractTextPlugin.extract({
-            fallback: "style-loader",
-            use: "css-loader"
-          })
-      }
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ }
     ]
   },
   resolve: {
     extensions: ['.js', '.jsx']
   },
   plugins: [
-    new ExtractTextPlugin("styles.css"),
     new webpack.DefinePlugin({
         'process.env': {
             'API_URL': JSON.stringify(API_URL),
