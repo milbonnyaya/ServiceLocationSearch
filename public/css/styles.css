@@ -95,6 +95,8 @@ body {
     }
     .leftBarMain .bars button {
         padding: 5px 0 5px 5px;
+        border: none;
+        background-color: #eee;
     }
     .groupMain {
         padding-top: 10px;
