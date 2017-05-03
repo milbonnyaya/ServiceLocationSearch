@@ -2,12 +2,18 @@
 
 Coding challenge from Brandify
 
-To install:
+To get it running locally:
 ```
 $ npm install
+$ npm run start-dev
 ```
 
-Dev Url:
+Local Url:
 ```
 http://localhost:3000/
+```
+
+Production Url:
+```
+https://brandify-code-challenge.herokuapp.com/
 ```
