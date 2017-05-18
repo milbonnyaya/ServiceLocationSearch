@@ -6,6 +6,7 @@ let status = {
     success: false
 };
 
+// export initial state of testing
 const INITIAL_STATE = { 
     list: [],
     addressListStatus: status
