@@ -11,8 +11,8 @@ module.exports = {
     './src/main.js'
   ],
   output: {
-    path: helpers.root('public/build'),
-    publicPath: '/public',
+    path: __dirname,
+    publicPath: '/',
     filename: 'bundle.js'
   },
   devServer: {

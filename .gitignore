@@ -42,3 +42,6 @@ jspm_packages
 # Build directory
 dist
 dist.tar
+
+# Jest Snapshots
+__snapshots__

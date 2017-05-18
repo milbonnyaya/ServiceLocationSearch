@@ -13,7 +13,7 @@ export function getAddressList (data) {
             if (json.status.code === 1) {
                 dispatch(fetchAddressListSuccess(json.locations));
             } else {
-                dispatch(fetchAddressListError(json.description));
+                dispatch(fetchAddressListError(json.description || json.status.description));
             }
             
         }).catch((err) => {

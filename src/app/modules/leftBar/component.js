@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class LeftBarComponent extends React.Component {
     
@@ -43,16 +44,18 @@ export class LeftBarComponent extends React.Component {
     }
 
     handleOnResize () {
-        let w = window,
-            d = document,
-            documentElement = d.documentElement,
-            body = d.getElementsByTagName('body')[0],
-            width = w.innerWidth || documentElement.clientWidth || body.clientWidth;
-        
-        if (width <= 599) {
-            this.setState({ showGroup: 'hide', width: width });
-        } else {
-            this.setState({ showGroup: 'show', width: width });
+        if (typeof window !== 'undefined') {
+            let w = window,
+                d = document,
+                documentElement = d.documentElement,
+                body = d.getElementsByTagName('body')[0],
+                width = w.innerWidth || documentElement.clientWidth || body.clientWidth;
+            
+            if (width <= 599) {
+                this.setState({ showGroup: 'hide', width: width });
+            } else {
+                this.setState({ showGroup: 'show', width: width });
+            }
         }
     }
 
@@ -61,11 +64,15 @@ export class LeftBarComponent extends React.Component {
     }
 
     componentDidMount () {
-        window.addEventListener("resize", this.handleOnResize.bind(this));
+        if (typeof window !== 'undefined') {
+            window.addEventListener("resize", this.handleOnResize.bind(this));
+        }
     }
 
     componentWillUnmount () {
-        window.removeEventListener("resize", this.handleOnResize.bind(this));
+        if (typeof window !== 'undefined') {
+            window.removeEventListener("resize", this.handleOnResize.bind(this));
+        }
     }
 
     render () {
@@ -100,4 +107,12 @@ export class LeftBarComponent extends React.Component {
             </div>
         );
     }
+};
+
+LeftBarComponent.propTypes = {
+    getAddressList: PropTypes.func,
+    handleClick: PropTypes.func,
+    handleInputChange: PropTypes.func,
+    showLeftNav: PropTypes.func,
+    fetchStatus: PropTypes.object
 };

@@ -100,14 +100,6 @@ export class MapComponent extends React.Component {
 
     render () {
         let { list } = this.props;
-        let newList = list.map((address) => {
-
-            return {
-                ...address,
-                showInfo: false,
-                infoContent: `<h1>${address.name}</h1><p>${address.address1} ${address.city}</p>`
-            };
-        });
         return (
             <div className="mapMain">
                 <LocationSearchGoogleMap
